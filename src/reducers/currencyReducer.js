@@ -1,22 +1,20 @@
-const initialState = {
-    loading: true,
-    currencies: []
+// const initialState = {
+//   loading: true,
+//   currencies: [],
+// };
 
-}
+export default (state = [], action) => {
+  switch (action.type) {
+    // case "LOADING":
+    //   return {
+    //     ...state,
+    //     currencies: [...state.currencies],
+    //     loading: true,
+    //   };
+    case "FETCH_CURRENCIES":
+      return action.payload;
 
-
-export default (state=initialState, action) => {
-    switch(action.type) {
-case "LOADING":
-return {
-    ...state, currencies: [...state.currencies],
-    loading: true
-}
-
-
-        default: 
-        return state
-    }
-
-}
-
+    default:
+      return state;
+  }
+};

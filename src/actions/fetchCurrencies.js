@@ -21,3 +21,5 @@ export function fetchCurrencies() {
       });
   };
 }
+
+// export function addCurrencies

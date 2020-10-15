@@ -6,6 +6,7 @@ export class currencyInput extends Component {
   state = {
     userCurrency: "",
     otherCurrency: "",
+    value: "",
   };
 
   handleChange = (event) => {
@@ -27,20 +28,33 @@ export class currencyInput extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          your currency
           <input
             type="text"
-            name="userCurrency"
+            name="user-currency"
             value={this.state.userCurrency}
             onChange={this.handleChange}
+            placeholder="your currency"
           />
-          convert to
+          <br />
+          <br />
           <input
             type="text"
-            name="otherCurrency"
+            name="other-currency"
             value={this.state.otherCurrency}
             onChange={this.handleChange}
+            placeholder="convert to"
           />
+          <br />
+          <br />
+          <input
+            type="text"
+            name="currency-value"
+            value={this.state.value}
+            onChange={this.handleChange}
+            placeholder="value"
+          />
+          <br />
+          <br />
           <input type="submit" value="Submit" />
         </form>
       </div>

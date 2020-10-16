@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCurrencies } from "../actions/fetchCurrencies";
+import { fetchCurrencies, convertCurrencies } from "../actions/fetchCurrencies";
+// import CurrencyList from "../components/CurrencyList";
 
 export class currencyInput extends Component {
   state = {
     userCurrency: "",
     otherCurrency: "",
-    value: "",
+    currencyValue: "",
   };
 
   handleChange = (event) => {
@@ -17,39 +18,64 @@ export class currencyInput extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.convertCurrencies(
+      this.state.userCurrency,
+      this.state.otherCurrency,
+      this.state.currencyValue
+    );
 
     this.setState({
       userCurrency: "",
       otherCurrency: "",
+      currencyValue: "",
     });
   };
 
   render() {
+    const selectCurrency = this.props.currency.map((cur) => cur.currencies);
+    let array = [];
+    let counter = 0;
+
+    if (selectCurrency.length > 0) {
+      for (const [key, value] of Object.entries(selectCurrency[0])) {
+        array.push(
+          <option key={counter++} value={key}>
+            {value}
+          </option>
+        );
+      }
+    }
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="user-currency"
+          From:
+          <select
+            name="userCurrency"
             value={this.state.userCurrency}
             onChange={this.handleChange}
-            placeholder="your currency"
-          />
+          >
+            {array}
+          </select>
           <br />
           <br />
-          <input
-            type="text"
-            name="other-currency"
+          To:{" "}
+          <select
+            name="otherCurrency"
             value={this.state.otherCurrency}
             onChange={this.handleChange}
-            placeholder="convert to"
-          />
+          >
+            {array}
+          </select>
           <br />
           <br />
           <input
-            type="text"
-            name="currency-value"
-            value={this.state.value}
+            type="number"
+            min="0.01"
+            step="0.01"
+            max="2500"
+            name="currencyValue"
+            value={this.state.currencyValue}
             onChange={this.handleChange}
             placeholder="value"
           />
@@ -62,7 +88,9 @@ export class currencyInput extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   return { currency: state.currency };
-// }
-export default connect(null, { fetchCurrencies })(currencyInput);
+function mapStateToProps(state) {
+  return { currency: state.currencies.currency };
+}
+export default connect(mapStateToProps, { fetchCurrencies, convertCurrencies })(
+  currencyInput
+);

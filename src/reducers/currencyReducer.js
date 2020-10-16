@@ -1,6 +1,7 @@
 const initialState = {
-  loading: true,
-  currencies: [],
+  loading: false,
+  currency: [],
+  userCurrency: [],
 };
 
 export default (state = initialState, action) => {
@@ -8,11 +9,19 @@ export default (state = initialState, action) => {
     case "LOADING":
       return {
         ...state,
-        currencies: [...state.currencies],
         loading: true,
       };
     case "FETCH_CURRENCIES":
-      return action.payload;
+      return {
+        ...state,
+        currency: [...state.currency, action.payload],
+      };
+
+    case "CONVERT_CURRENCIES":
+      return {
+        ...state,
+        userCurrency: [...state.userCurrency, action.payload],
+      };
 
     default:
       return state;

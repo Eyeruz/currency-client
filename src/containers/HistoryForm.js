@@ -3,6 +3,7 @@ import {
   fetchCurrencies,
   convertCurrencies,
   userCurrencies,
+  currencyHistory,
 } from "../actions/fetchCurrencies";
 import { connect } from "react-redux";
 export class HistoryForm extends Component {
@@ -10,6 +11,7 @@ export class HistoryForm extends Component {
     From: "",
     To: "",
     Value: "",
+    Date: "",
   };
 
   handleChange = (event) => {
@@ -21,15 +23,17 @@ export class HistoryForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.convertCurrencies(
-      this.state.userCurrency,
-      this.state.otherCurrency,
-      this.state.currencyValue
+      this.state.From,
+      this.state.To,
+      this.state.Value,
+      this.state.
     );
 
     this.setState({
-      userCurrency: "",
-      otherCurrency: "",
-      currencyValue: "",
+      To: "",
+      From: "",
+      Value: "",
+      Date: "",
     });
   };
 
@@ -47,6 +51,7 @@ export class HistoryForm extends Component {
         );
       }
     }
+    const Today = Date.now();
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -56,15 +61,13 @@ export class HistoryForm extends Component {
             value={this.state.From}
             onChange={this.handleChange}
           >
-            {" "}
-            {array}{" "}
+            {array}
           </select>
           <br />
           <br />
-          To:{" "}
+          To:
           <select name="To" value={this.state.To} onChange={this.handleChange}>
-            {" "}
-            {array}{" "}
+            {array}
           </select>
           <br />
           <br />
@@ -80,6 +83,14 @@ export class HistoryForm extends Component {
           />
           <br />
           <br />
+          <input
+            type="date"
+            id="start"
+            name="trip-start"
+            value="2018-07-22"
+            min="2010-01-01"
+            max={Today}
+          />
         </form>
       </div>
     );
@@ -94,4 +105,5 @@ export default connect(mapStateToProps, {
   fetchCurrencies,
   convertCurrencies,
   userCurrencies,
+  currencyHistory,
 })(HistoryForm);

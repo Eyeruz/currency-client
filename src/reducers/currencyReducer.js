@@ -25,6 +25,7 @@ export default (state = initialState, action) => {
         userCurrency: [...state.userCurrency, action.payload],
       };
     case "HISTORY_CURRENCY":
+      console.log(action.payload);
       return {
         ...state,
         userHistory: [...state.userHistory, action.payload],

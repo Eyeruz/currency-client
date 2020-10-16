@@ -88,9 +88,9 @@ export const currencyHistory = (date, from, to, value) => {
       .then((response) => {
         console.log(response);
       })
-      // .then((data) => {
-      //   dispatch({ type: "CONVERT_CURRENCIES", payload: data })
-      // })
+      .then((data) => {
+        dispatch({ type: "HISTORY_CURRENCY", payload: data });
+      })
       .catch((err) => {
         console.error(err);
       });

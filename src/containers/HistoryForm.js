@@ -1,17 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import {
   fetchCurrencies,
   convertCurrencies,
   userCurrencies,
 } from "../actions/fetchCurrencies";
-// import CurrencyList from "../components/CurrencyList";
-
-export class CurrencyInput extends Component {
+import { connect } from "react-redux";
+export class HistoryForm extends Component {
   state = {
-    userCurrency: "",
-    otherCurrency: "",
-    currencyValue: "",
+    From: "",
+    To: "",
+    Value: "",
   };
 
   handleChange = (event) => {
@@ -49,27 +47,24 @@ export class CurrencyInput extends Component {
         );
       }
     }
-
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           From:
           <select
-            name="userCurrency"
-            value={this.state.userCurrency}
+            name="From"
+            value={this.state.From}
             onChange={this.handleChange}
           >
-            {array}
+            {" "}
+            {array}{" "}
           </select>
           <br />
           <br />
           To:{" "}
-          <select
-            name="otherCurrency"
-            value={this.state.otherCurrency}
-            onChange={this.handleChange}
-          >
-            {array}
+          <select name="To" value={this.state.To} onChange={this.handleChange}>
+            {" "}
+            {array}{" "}
           </select>
           <br />
           <br />
@@ -78,14 +73,13 @@ export class CurrencyInput extends Component {
             min="0.01"
             step="0.01"
             max="1000000"
-            name="currencyValue"
-            value={this.state.currencyValue}
+            name="Value"
+            value={this.state.Value}
             onChange={this.handleChange}
             placeholder="value"
           />
           <br />
           <br />
-          <input type="submit" value="Submit" />
         </form>
       </div>
     );
@@ -95,8 +89,9 @@ export class CurrencyInput extends Component {
 function mapStateToProps(state) {
   return { currency: state.currencies.currency };
 }
+
 export default connect(mapStateToProps, {
   fetchCurrencies,
   convertCurrencies,
   userCurrencies,
-})(CurrencyInput);
+})(HistoryForm);

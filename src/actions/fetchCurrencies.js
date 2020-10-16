@@ -1,5 +1,3 @@
-import Currency from "../components/Currency";
-
 export function fetchCurrencies() {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
@@ -70,7 +68,43 @@ export const userCurrencies = (data) => {
     })
       .then((resp) => resp.json())
       .then((currency) => {
-        dispatch({ type: "ADD_CURRENCY", payload: currency });
+        dispatch({ type: "HISTORY_CURRENCY", payload: currency });
       });
+  };
+};
+export const currencyHistory = (date, from, to, value) => {
+  return (dispatch) => {
+    fetch(
+      "https://rapidapi.p.rapidapi.com/currency/historical/2020-01-20?from=EUR&amount=1&format=json&to=GBP",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "currency-converter5.p.rapidapi.com",
+          "x-rapidapi-key":
+            "9d691e50d2msh4aa205c2ff027f5p10f338jsn0e4e7c874dc3",
+        },
+      }
+    )
+      .then((response) => {
+        console.log(response);
+      })
+      // .then((data) => {
+      //   dispatch({ type: "CONVERT_CURRENCIES", payload: data })
+      // })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+};
+
+export const userHistory = () => {
+  return (dispatch) => {
+    fetch("http://localhost:3001/currencies", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
   };
 };

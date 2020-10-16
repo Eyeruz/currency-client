@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-export class Currency extends Component {
+export class HistoryConverter extends Component {
   render() {
     return <div></div>;
   }
 }
 
-export default Currency;
+export default HistoryConverter;

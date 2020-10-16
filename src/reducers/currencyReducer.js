@@ -2,6 +2,7 @@ const initialState = {
   loading: false,
   currency: [],
   userCurrency: [],
+  userHistory: [],
 };
 
 export default (state = initialState, action) => {
@@ -23,10 +24,10 @@ export default (state = initialState, action) => {
         ...state,
         userCurrency: [...state.userCurrency, action.payload],
       };
-    case "ADD_CURRENCY":
+    case "HISTORY_CURRENCY":
       return {
         ...state,
-        userCurrency: [...state.userCurrency, action.payload],
+        userHistory: [...state.userHistory, action.payload],
       };
 
     default:

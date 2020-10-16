@@ -6,6 +6,7 @@ import {
   currencyHistory,
 } from "../actions/fetchCurrencies";
 import { connect } from "react-redux";
+
 export class HistoryForm extends Component {
   state = {
     From: "",
@@ -22,11 +23,11 @@ export class HistoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.convertCurrencies(
+    this.props.currencyHistory(
       this.state.From,
       this.state.To,
       this.state.Value,
-      this.state.
+      this.state.Date
     );
 
     this.setState({
@@ -52,6 +53,12 @@ export class HistoryForm extends Component {
       }
     }
     const Today = Date.now();
+
+    const date = new Date(Today);
+    const dateString = new Date(
+      date.getTime() - date.getTimezoneOffset() * 60000
+    );
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -86,11 +93,14 @@ export class HistoryForm extends Component {
           <input
             type="date"
             id="start"
-            name="trip-start"
-            value="2018-07-22"
+            name="Date"
+            value={this.state.Date}
             min="2010-01-01"
-            max={Today}
+            max={dateString}
+            onChange={this.handleChange}
           />
+          <br />
+          <input type="submit" value="Submit" />
         </form>
       </div>
     );

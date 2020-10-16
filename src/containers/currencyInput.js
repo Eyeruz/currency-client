@@ -5,7 +5,6 @@ import {
   convertCurrencies,
   userCurrencies,
 } from "../actions/fetchCurrencies";
-// import CurrencyList from "../components/CurrencyList";
 
 export class CurrencyInput extends Component {
   state = {

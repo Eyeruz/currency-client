@@ -4,9 +4,6 @@ import { fetchCurrencies } from "../actions/fetchCurrencies";
 import CurrencyList from "./CurrencyList";
 
 export class CurrencyConverter extends Component {
-  componentDidMount() {
-    this.props.fetchCurrencies();
-  }
   render() {
     const latest = this.props.usercur[this.props.usercur.length - 1];
     console.log(latest);

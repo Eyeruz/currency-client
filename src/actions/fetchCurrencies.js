@@ -72,10 +72,10 @@ export const userCurrencies = (data) => {
       });
   };
 };
-export const currencyHistory = (date, from, to, value) => {
+export const currencyHistory = (from, to, value, date) => {
   return (dispatch) => {
     fetch(
-      "https://rapidapi.p.rapidapi.com/currency/historical/2020-01-20?from=EUR&amount=1&format=json&to=GBP",
+      `https://rapidapi.p.rapidapi.com/currency/historical/${date}?from=${from}&amount=${value}&format=json&to=${to}`,
       {
         method: "GET",
         headers: {
@@ -85,12 +85,8 @@ export const currencyHistory = (date, from, to, value) => {
         },
       }
     )
-      .then((response) => {
-        console.log(response);
-      })
-      .then((data) => {
-        dispatch({ type: "HISTORY_CURRENCY", payload: data });
-      })
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: "CURRENCY_HISTORY", payload: data }))
       .catch((err) => {
         console.error(err);
       });

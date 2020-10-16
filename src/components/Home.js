@@ -1,14 +1,21 @@
 import React, { Component } from "react";
-import HistoryForm from "/containers/HistoryForm";
+import { connect } from "react-redux";
+import { fetchCurrencies } from "../actions/fetchCurrencies";
+import CurrencyInput from "../containers/CurrencyInput";
+import CurrencyConverter from "./CurrencyConverter";
 
 export class Home extends Component {
+  componentDidMount() {
+    this.props.fetchCurrencies();
+  }
   render() {
     return (
       <div>
-        <HistoryForm />
+        <CurrencyInput />
+        <CurrencyConverter />
       </div>
     );
   }
 }
 
-export default Home;
+export default connect(null, { fetchCurrencies })(Home);

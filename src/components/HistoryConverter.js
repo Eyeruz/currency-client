@@ -1,9 +1,39 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { currencyHistory } from "../actions/fetchCurrencies";
+import HistoryList from "./HistoryList";
 
 export class HistoryConverter extends Component {
   render() {
-    return <div></div>;
+    const latestHistory = this.props.history[this.props.historylength - 1];
+    console.log(latestHistory);
+    if (!latestHistory) {
+      return <div> no data loaded yet</div>;
+    }
+
+    const key = Object.keys(latestHistory.rates)[0];
+
+    console.log(latestHistory.rates[key].currency_name);
+
+    return (
+      <div>
+        <h1> Welcome to the History Coverter</h1>
+        <HistoryList
+          currencyName={latestHistory.base_currency_code}
+          currencyAmount={latestHistory.amount}
+          convertedName={latestHistory.rates[key].currency_name}
+          convertedAmount={latestHistory.rates[key].rate_for_amount}
+          convertedDate={latestHistory.rates[key].update_date}
+        />
+      </div>
+    );
   }
 }
 
-export default HistoryConverter;
+const mapStateToProps = (state) => {
+  return {
+    history: state.currencies.userHistory,
+  };
+};
+
+export default connect(mapStateToProps, { currencyHistory })(HistoryConverter);

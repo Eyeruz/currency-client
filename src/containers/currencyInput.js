@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCurrencies, convertCurrencies } from "../actions/fetchCurrencies";
+import {
+  fetchCurrencies,
+  convertCurrencies,
+  userCurrencies,
+} from "../actions/fetchCurrencies";
 // import CurrencyList from "../components/CurrencyList";
 
 export class currencyInput extends Component {
@@ -91,6 +95,8 @@ export class currencyInput extends Component {
 function mapStateToProps(state) {
   return { currency: state.currencies.currency };
 }
-export default connect(mapStateToProps, { fetchCurrencies, convertCurrencies })(
-  currencyInput
-);
+export default connect(mapStateToProps, {
+  fetchCurrencies,
+  convertCurrencies,
+  userCurrencies,
+})(currencyInput);

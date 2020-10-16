@@ -1,3 +1,5 @@
+import Currency from "../components/Currency";
+
 export function fetchCurrencies() {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
@@ -35,9 +37,40 @@ export function convertCurrencies(from, to, value) {
       .then((response) => {
         return response.json();
       })
-      .then((data) => dispatch({ type: "CONVERT_CURRENCIES", payload: data }))
+      .then((data) => {
+        dispatch({ type: "CONVERT_CURRENCIES", payload: data });
+        dispatch(userCurrencies(data));
+      })
+
       .catch((err) => {
         console.error(err);
       });
   };
 }
+
+export const userCurrencies = (data) => {
+  const key = Object.keys(data.rates)[0];
+
+  const strongParams = {
+    currency: {
+      currencyName: data.base_currency_code,
+      currencyAmount: data.amount,
+      convertedName: data.rates[key].currency_name,
+      convertedAmount: data.rates[key].rate_for_amount,
+    },
+  };
+  return (dispatch) => {
+    fetch("http://localhost:3001/currencies", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(strongParams),
+    })
+      .then((resp) => resp.json())
+      .then((currency) => {
+        dispatch({ type: "ADD_CURRENCY", payload: currency });
+      });
+  };
+};

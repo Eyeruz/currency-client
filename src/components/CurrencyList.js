@@ -1,13 +1,14 @@
 import React from "react";
 
 const CurrencyList = (props) => {
+  console.log(props);
   return (
     <div>
-      <h4>{props.currency}</h4>
-      <h4>{props.amount}</h4>
-      <div> = </div>
-      <h4>{props.otherCurrency}</h4>
-      <h4>{props.covertedAmount}</h4>
+      <p>{props.currencyName}</p>
+      <p>{props.currencyAmount}</p>
+      equals
+      <p>{props.convertedName}</p>
+      <p>{props.convertedAmount}</p>
     </div>
   );
 };

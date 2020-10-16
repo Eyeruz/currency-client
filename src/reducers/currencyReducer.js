@@ -18,6 +18,12 @@ export default (state = initialState, action) => {
       };
 
     case "CONVERT_CURRENCIES":
+      console.log(action.payload);
+      return {
+        ...state,
+        userCurrency: [...state.userCurrency, action.payload],
+      };
+    case "ADD_CURRENCY":
       return {
         ...state,
         userCurrency: [...state.userCurrency, action.payload],

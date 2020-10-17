@@ -72,6 +72,7 @@ export const userCurrencies = (data) => {
       });
   };
 };
+
 export const currencyHistory = (from, to, value, date) => {
   return (dispatch) => {
     fetch(
@@ -86,21 +87,41 @@ export const currencyHistory = (from, to, value, date) => {
       }
     )
       .then((response) => response.json())
-      .then((data) => dispatch({ type: "CURRENCY_HISTORY", payload: data }))
+      .then((data) => {
+        console.log(data);
+        dispatch({ type: "CURRENCY_HISTORY", payload: data });
+        dispatch(userHistory(data));
+      })
       .catch((err) => {
         console.error(err);
       });
   };
 };
 
-export const userHistory = () => {
+export const userHistory = (data) => {
+  const key = Object.keys(data.rates)[0];
+
+  const strongParams = {
+    currency_history: {
+      currencyName: data.base_currency_code,
+      currencyAmount: data.amount,
+      convertedName: data.rates[key].currency_name,
+      convertedAmount: data.rates[key].rate_for_amount,
+      convertedDate: data.updated_date,
+    },
+  };
   return (dispatch) => {
-    fetch("http://localhost:3001/currencies", {
-      method: "GET",
+    fetch("http://localhost:3001/currency_histories", {
+      method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-    });
+      body: JSON.stringify(strongParams),
+    })
+      .then((resp) => resp.json())
+      .then((currency) => {
+        dispatch({ type: "HISTORY_CURRENCY", payload: currency });
+      });
   };
 };

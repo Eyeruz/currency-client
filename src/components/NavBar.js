@@ -15,6 +15,10 @@ const NavBar = () => {
       <button>
         <NavLink to="/about">About</NavLink>
       </button>
+
+      <button>
+        <NavLink to="/history">Currency History</NavLink>
+      </button>
     </div>
   );
 };

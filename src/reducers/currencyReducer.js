@@ -3,6 +3,7 @@ const initialState = {
   currency: [],
   userCurrency: [],
   userHistory: [],
+  userHistorySearches: [],
 };
 
 export default (state = initialState, action) => {
@@ -29,6 +30,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         userHistory: [...state.userHistory, action.payload],
+      };
+    case "HISTORY_CURRENCY":
+      console.log(action.payload);
+      return {
+        ...state,
+        userHistorySearches: [...state.userHistorySearches, action.payload],
       };
 
     default:

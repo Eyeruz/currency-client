@@ -5,8 +5,7 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import CurrencyInput from "./containers/CurrencyInput";
 import About from "./components/About";
-import HistoryForm from "./containers/HistoryForm";
-import HistoryConverter from "./components/HistoryConverter";
+import History from "./components/History";
 
 class App extends Component {
   render() {
@@ -18,6 +17,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/form" component={CurrencyInput} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/history" component={History} />
         </div>
       </Router>
     );

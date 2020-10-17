@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { fetchCurrencies } from "../actions/fetchCurrencies";
 import CurrencyInput from "../containers/CurrencyInput";
 import CurrencyConverter from "./CurrencyConverter";
+// import HistoryForm from "../containers/HistoryForm";
+// import HistoryConverter from "./HistoryConverter";
 
 export class Home extends Component {
   componentDidMount() {
@@ -13,6 +15,9 @@ export class Home extends Component {
       <div>
         <CurrencyInput />
         <CurrencyConverter />
+        <br />
+        {/* <HistoryForm />
+        <HistoryConverter /> */}
       </div>
     );
   }

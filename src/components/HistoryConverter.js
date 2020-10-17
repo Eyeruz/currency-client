@@ -5,7 +5,7 @@ import HistoryList from "./HistoryList";
 
 export class HistoryConverter extends Component {
   render() {
-    const latestHistory = this.props.history[this.props.historylength - 1];
+    const latestHistory = this.props.history[this.props.history.length - 1];
     console.log(latestHistory);
     if (!latestHistory) {
       return <div> no data loaded yet</div>;
@@ -13,7 +13,7 @@ export class HistoryConverter extends Component {
 
     const key = Object.keys(latestHistory.rates)[0];
 
-    console.log(latestHistory.rates[key].currency_name);
+    console.log(latestHistory.updated_date);
 
     return (
       <div>
@@ -23,7 +23,7 @@ export class HistoryConverter extends Component {
           currencyAmount={latestHistory.amount}
           convertedName={latestHistory.rates[key].currency_name}
           convertedAmount={latestHistory.rates[key].rate_for_amount}
-          convertedDate={latestHistory.rates[key].update_date}
+          convertedDate={latestHistory.updated_date}
         />
       </div>
     );

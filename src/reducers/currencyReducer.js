@@ -4,6 +4,7 @@ const initialState = {
   userCurrency: [],
   userHistory: [],
   userHistorySearches: [],
+  searches: [],
 };
 
 export default (state = initialState, action) => {
@@ -20,24 +21,26 @@ export default (state = initialState, action) => {
       };
 
     case "CONVERT_CURRENCIES":
-      console.log(action.payload);
       return {
         ...state,
         userCurrency: [...state.userCurrency, action.payload],
       };
     case "CURRENCY_HISTORY":
-      console.log(action.payload);
       return {
         ...state,
         userHistory: [...state.userHistory, action.payload],
       };
-    case "HISTORY_CURRENCY":
-      console.log(action.payload);
+    case "HISTORY_CURRENCY_POST":
       return {
         ...state,
         userHistorySearches: [...state.userHistorySearches, action.payload],
       };
-
+    case "CURRENCY_SEARCHES":
+      console.log(action.payload);
+      return {
+        ...state,
+        searches: [...state.searches, action.payload],
+      };
     default:
       return state;
   }

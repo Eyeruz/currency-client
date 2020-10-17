@@ -121,7 +121,23 @@ export const userHistory = (data) => {
     })
       .then((resp) => resp.json())
       .then((currency) => {
-        dispatch({ type: "HISTORY_CURRENCY", payload: currency });
+        dispatch({ type: "HISTORY_CURRENCY_POST", payload: currency });
+      });
+  };
+};
+
+export const currencySearches = () => {
+  return (dispatch) => {
+    fetch("http://localhost:3001/currencies", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((currency) => {
+        dispatch({ type: "CURRENCY_SEARCHES", payload: currency });
       });
   };
 };

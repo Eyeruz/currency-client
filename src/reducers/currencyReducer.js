@@ -41,6 +41,15 @@ export default (state = initialState, action) => {
         ...state,
         searches: [...state.searches, action.payload],
       };
+    case "DELETE_CURRENCY":
+      console.log(action.payload);
+      let newSearches = state.searches.filter(
+        (search) => search.id !== action.id
+      );
+      return {
+        ...state,
+        searches: [...newSearches],
+      };
     default:
       return state;
   }

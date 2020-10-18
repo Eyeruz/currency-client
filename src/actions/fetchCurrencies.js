@@ -141,3 +141,11 @@ export const currencySearches = () => {
       });
   };
 };
+
+export const deleteSearches = (id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/currencies/${id}`, { method: "DELETE" })
+      .then((resp) => resp.json())
+      .then((id) => dispatch({ type: "DELETE_CURRENCY", payload: id }));
+  };
+};

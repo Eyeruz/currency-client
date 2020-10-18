@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { currencySearches } from "../actions/fetchCurrencies";
 import SearchesDisplay from "./SearchesDisplay";
+import SearchLinks from "./SearchLinks";
 
 export class Searches extends Component {
   componentDidMount() {
@@ -13,19 +14,23 @@ export class Searches extends Component {
     console.log(searches);
 
     return (
-      <div>
-        {searches
-          ? searches.map((search, i) => (
-              <SearchesDisplay
-                key={i}
-                name={search.currencyName}
-                amount={search.currencyAmount}
-                cName={search.convertedName}
-                cAmount={search.convertedAmount}
-              />
-            ))
-          : null}
-      </div>
+      <>
+        <div>
+          <SearchLinks />
+          {searches
+            ? searches.map((search, i) => (
+                <SearchesDisplay
+                  key={i}
+                  id={search.id}
+                  name={search.currencyName}
+                  amount={search.currencyAmount}
+                  cName={search.convertedName}
+                  cAmount={search.convertedAmount}
+                />
+              ))
+            : null}
+        </div>
+      </>
     );
   }
 }

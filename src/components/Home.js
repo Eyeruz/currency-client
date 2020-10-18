@@ -15,7 +15,6 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <Searches />
         <CurrencyInput />
         <CurrencyConverter />
         <br />

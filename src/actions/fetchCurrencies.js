@@ -93,7 +93,7 @@ export const currencyHistory = (from, to, value, date) => {
         dispatch(userHistory(data));
       })
       .catch((err) => {
-        console.error(err);
+        alert(err);
       });
   };
 };

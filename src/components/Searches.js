@@ -9,24 +9,22 @@ export class Searches extends Component {
   }
 
   render() {
-    // const key = Object.keys(latestHistory.rates)[0];
-    console.log(this.props.searches);
-    const currencySearch = this.props.searches[this.props.searches.length - 1];
-
-    const search = currencySearch.map((search, i) => (
-      <SearchesDisplay
-        key={i}
-        name={search.currencyName}
-        amount={search.currencyAmount}
-        cName={search.convertedName}
-        cAmount={search.convertedAmount}
-      />
-    ));
+    const searches = this.props.searches[this.props.searches.length - 1];
+    console.log(searches);
 
     return (
       <div>
-        <h1>is this working??</h1>
-        {console.log(search)}
+        {searches
+          ? searches.map((search, i) => (
+              <SearchesDisplay
+                key={i}
+                name={search.currencyName}
+                amount={search.currencyAmount}
+                cName={search.convertedName}
+                cAmount={search.convertedAmount}
+              />
+            ))
+          : null}
       </div>
     );
   }

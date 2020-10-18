@@ -96,7 +96,7 @@ export class HistoryForm extends Component {
             name="Date"
             value={this.state.Date}
             min="2010-01-01"
-            max={dateString}
+            max={Date.now()}
             onChange={this.handleChange}
           />
           <br />

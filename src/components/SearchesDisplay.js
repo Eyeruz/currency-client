@@ -7,6 +7,7 @@ const SearchesDisplay = (props) => {
       <p>{props.amount}</p>
       <p>{props.cName}</p>
       <p>{props.cAmount}</p>
+      <h3>-----------------</h3>
     </div>
   );
 };

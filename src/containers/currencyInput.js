@@ -21,10 +21,13 @@ export class CurrencyInput extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    let user_id = this.props.user.user.id;
+
     this.props.convertCurrencies(
       this.state.userCurrency,
       this.state.otherCurrency,
-      this.state.currencyValue
+      this.state.currencyValue,
+      user_id
     );
 
     this.setState({
@@ -92,7 +95,10 @@ export class CurrencyInput extends Component {
 }
 
 function mapStateToProps(state) {
-  return { currency: state.currencies.currency };
+  return {
+    currency: state.currencies.currency,
+    user: state.users.user,
+  };
 }
 export default connect(mapStateToProps, {
   fetchCurrencies,

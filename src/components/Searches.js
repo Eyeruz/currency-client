@@ -6,13 +6,16 @@ import SearchLinks from "./SearchLinks";
 
 export class Searches extends Component {
   componentDidMount() {
-    this.props.currencySearches();
+    console.log(this.props);
+
+    if (this.props.user.user && this.props.user.user.id) {
+      this.props.currencySearches(this.props.user.user.id);
+    }
   }
 
   render() {
     const searches = this.props.searches[this.props.searches.length - 1];
     console.log(searches);
-
     return (
       <>
         <div>
@@ -26,6 +29,7 @@ export class Searches extends Component {
                   amount={search.currencyAmount}
                   cName={search.convertedName}
                   cAmount={search.convertedAmount}
+                  user_id={search.user_id}
                 />
               ))
             : null}
@@ -37,6 +41,7 @@ export class Searches extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    user: state.users.user,
     searches: state.currencies.searches,
   };
 };

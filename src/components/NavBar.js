@@ -1,26 +1,22 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-
-const NavBar = () => {
-  return (
-    <div>
-      <button color="black">
-        <NavLink to="/">Home</NavLink>
-      </button>
-
-      <button>
-        <NavLink to="/about">About</NavLink>
-      </button>
-
-      <button>
-        <NavLink to="/history">Currency History</NavLink>
-      </button>
-
-      <button>
-        <NavLink to="/search-history">Search History</NavLink>
-      </button>
-    </div>
-  );
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import IfSignedIn from "./IfSignedIn";
+import IfSignedOut from "./IfSignedOut";
+export class NavBar extends Component {
+  render() {
+    let links;
+    this.props.state.users.logged_in
+      ? (links = <IfSignedIn />)
+      : (links = <IfSignedOut />);
+    return (
+      <nav>
+        <div>{links}</div>
+      </nav>
+    );
+  }
+}
+const mapStateToProps = (state) => {
+  return { state };
 };
 
-export default NavBar;
+export default connect(mapStateToProps)(NavBar);

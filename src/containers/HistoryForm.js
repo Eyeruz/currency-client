@@ -52,12 +52,21 @@ export class HistoryForm extends Component {
         );
       }
     }
-    const Today = Date.now();
+    let today = new Date();
+    let dd = today.getDate();
 
-    const date = new Date(Today);
-    const dateString = new Date(
-      date.getTime() - date.getTimezoneOffset() * 60000
-    );
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
+
+    today = yyyy + "-" + mm + "-" + dd;
+    console.log(today);
 
     return (
       <div>
@@ -96,7 +105,7 @@ export class HistoryForm extends Component {
             name="Date"
             value={this.state.Date}
             min="2010-01-01"
-            max={Date.now()}
+            max={today}
             onChange={this.handleChange}
           />
           <br />

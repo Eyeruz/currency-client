@@ -18,7 +18,7 @@ export function fetchCurrencies() {
   };
 }
 
-export function convertCurrencies(from, to, value) {
+export function convertCurrencies(from, to, value, user_id) {
   return (dispatch) => {
     dispatch({ type: "LOADING" });
     fetch(
@@ -37,7 +37,7 @@ export function convertCurrencies(from, to, value) {
       })
       .then((data) => {
         dispatch({ type: "CONVERT_CURRENCIES", payload: data });
-        dispatch(userCurrencies(data));
+        dispatch(userCurrencies(data, user_id));
       })
 
       .catch((err) => {
@@ -46,19 +46,19 @@ export function convertCurrencies(from, to, value) {
   };
 }
 
-export const userCurrencies = (data) => {
+export const userCurrencies = (data, user_id) => {
   const key = Object.keys(data.rates)[0];
-
-  const strongParams = {
-    currency: {
-      currencyName: data.base_currency_code,
-      currencyAmount: data.amount,
-      convertedName: data.rates[key].currency_name,
-      convertedAmount: data.rates[key].rate_for_amount,
-    },
-  };
   return (dispatch) => {
-    fetch("http://localhost:3001/currencies", {
+    const strongParams = {
+      currency: {
+        currencyName: data.base_currency_code,
+        currencyAmount: data.amount,
+        convertedName: data.rates[key].currency_name,
+        convertedAmount: data.rates[key].rate_for_amount,
+      },
+    };
+
+    fetch(`http://localhost:3001/users/${user_id}/currencies`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -126,9 +126,9 @@ export const userHistory = (data) => {
   };
 };
 
-export const currencySearches = () => {
+export const currencySearches = (user_id) => {
   return (dispatch) => {
-    fetch("http://localhost:3001/currencies", {
+    fetch(`http://localhost:3001/users/${user_id}/currencies`, {
       method: "GET",
       headers: {
         Accept: "application/json",

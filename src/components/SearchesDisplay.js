@@ -14,6 +14,7 @@ export class SearchesDisplay extends Component {
         <p>{this.props.amount}</p>
         <p>{this.props.cName}</p>
         <p>{this.props.cAmount}</p>
+        <p>{this.props.user_id}</p>
         <button onClick={this.handleChange}>Delete</button>
         <h3>-----------------</h3>
       </div>

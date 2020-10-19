@@ -73,7 +73,7 @@ export const userCurrencies = (data, user_id) => {
   };
 };
 
-export const currencyHistory = (from, to, value, date) => {
+export const currencyHistory = (from, to, value, date, user_id) => {
   return (dispatch) => {
     fetch(
       `https://rapidapi.p.rapidapi.com/currency/historical/${date}?from=${from}&amount=${value}&format=json&to=${to}`,
@@ -90,7 +90,7 @@ export const currencyHistory = (from, to, value, date) => {
       .then((data) => {
         console.log(data);
         dispatch({ type: "CURRENCY_HISTORY", payload: data });
-        dispatch(userHistory(data));
+        dispatch(userHistory(data, user_id));
       })
       .catch((err) => {
         alert(err);
@@ -98,7 +98,7 @@ export const currencyHistory = (from, to, value, date) => {
   };
 };
 
-export const userHistory = (data) => {
+export const userHistory = (data, user_id) => {
   const key = Object.keys(data.rates)[0];
 
   const strongParams = {
@@ -111,7 +111,7 @@ export const userHistory = (data) => {
     },
   };
   return (dispatch) => {
-    fetch("http://localhost:3001/currency_histories", {
+    fetch(`http://localhost:3001/users/${user_id}/currency_histories`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -142,10 +142,37 @@ export const currencySearches = (user_id) => {
   };
 };
 
+export const currencyHistorySearches = (user_id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/users/${user_id}/currency_histories`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((currency) => {
+        dispatch({ type: "CURRENCY_HISTORY_SEARCHES", payload: currency });
+      });
+  };
+};
+
 export const deleteSearches = (id) => {
   return (dispatch) => {
     fetch(`http://localhost:3001/currencies/${id}`, { method: "DELETE" })
       .then((resp) => resp.json())
       .then((id) => dispatch({ type: "DELETE_CURRENCY", payload: id }));
+  };
+};
+
+export const deleteHistorySearches = (id) => {
+  console.log(id);
+  return (dispatch) => {
+    fetch(`http://localhost:3001/currency_histories/${id}`, {
+      method: "DELETE",
+    })
+      .then((resp) => resp.json())
+      .then((id) => dispatch({ type: "DELETE_CURRENCY_HISTORY", payload: id }));
   };
 };

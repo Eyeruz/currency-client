@@ -19,7 +19,12 @@ export class IfSignedIn extends Component {
           <NavLink to="/history">View Currency From the Past</NavLink>
         </li>
         <li>
-          <NavLink to="/search-history">View Your Currency Searches</NavLink>
+          <NavLink to="/searchlinks">View Currency Searches</NavLink>
+        </li>
+        <li>
+          {/* <NavLink to="/search-history">
+            {/* View Your Currency History Searches
+          </NavLink> */}
         </li>
 
         <li onClick={this.logout}>
@@ -37,12 +42,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(IfSignedIn));
-{
-  /* <Route exact path="/home" component={Home} />
-<Route exact path="/about" component={About} />
-<Route exact path="/history" component={History} />
-<Route exact path="/search-history" component={SearchHistory} />
-<Route exact path="/currencySearches" component={Searches} />
-<Route exact path="/signin" component={SignIn} />
-<Route exact path="/signup" component={SignUp} /> */
-}

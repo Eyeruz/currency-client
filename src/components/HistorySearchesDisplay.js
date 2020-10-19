@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { deleteSearches } from "../actions/fetchCurrencies";
 import { connect } from "react-redux";
+import { deleteHistorySearches } from "../actions/fetchCurrencies";
 
-export class SearchesDisplay extends Component {
+class HistorySearchesDisplay extends Component {
   handleChange = () => {
-    this.props.deleteSearches(this.props.id);
+    this.props.deleteHistorySearches(this.props.id);
   };
-
   render() {
     return (
       <div>
@@ -23,4 +22,4 @@ export class SearchesDisplay extends Component {
   }
 }
 
-export default connect(null, { deleteSearches })(SearchesDisplay);
+export default connect(null, { deleteHistorySearches })(HistorySearchesDisplay);

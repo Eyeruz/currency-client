@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchCurrencies } from "../actions/fetchCurrencies";
 import CurrencyInput from "../containers/CurrencyInput";
 import CurrencyConverter from "./CurrencyConverter";
-import Searches from "./Searches";
+// import Searches from "./Searches";
 // import HistoryForm from "../containers/HistoryForm";
 // import HistoryConverter from "./HistoryConverter";
 

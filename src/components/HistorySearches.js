@@ -1,37 +1,32 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { currencySearches } from "../actions/fetchCurrencies";
-import SearchesDisplay from "./SearchesDisplay";
+import { currencyHistorySearches } from "../actions/fetchCurrencies";
+import HistorySearchesDisplay from "./HistorySearchesDisplay";
 import SearchLinks from "./SearchLinks";
 
-export class Searches extends Component {
+class HistorySearches extends Component {
   componentDidMount() {
-    console.log(this.props);
-
     if (this.props.user.user && this.props.user.user.id) {
-      this.props.currencySearches(this.props.user.user.id);
+      this.props.currencyHistorySearches(this.props.user.user.id);
     }
   }
-  update() {
-    this.forceUpdate();
-  }
-
   render() {
     const searches = this.props.searches[this.props.searches.length - 1];
     console.log(searches);
     return (
       <>
+        <SearchLinks />
         <div>
-          <SearchLinks />
           {searches
             ? searches.map((search, i) => (
-                <SearchesDisplay
+                <HistorySearchesDisplay
                   key={i}
                   id={search.id}
                   name={search.currencyName}
                   amount={search.currencyAmount}
                   cName={search.convertedName}
                   cAmount={search.convertedAmount}
+                  cDate={search.convertedDate}
                   user_id={search.user_id}
                 />
               ))
@@ -45,8 +40,10 @@ export class Searches extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.users.user,
-    searches: state.currencies.searches,
+    searches: state.currencies.historySearches,
   };
 };
 
-export default connect(mapStateToProps, { currencySearches })(Searches);
+export default connect(mapStateToProps, { currencyHistorySearches })(
+  HistorySearches
+);

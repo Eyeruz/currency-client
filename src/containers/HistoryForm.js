@@ -23,11 +23,14 @@ export class HistoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    let user_id = this.props.user.user.id;
+
     this.props.currencyHistory(
       this.state.From,
       this.state.To,
       this.state.Value,
-      this.state.Date
+      this.state.Date,
+      user_id
     );
 
     this.setState({
@@ -117,7 +120,10 @@ export class HistoryForm extends Component {
 }
 
 function mapStateToProps(state) {
-  return { currency: state.currencies.currency };
+  return {
+    currency: state.currencies.currency,
+    user: state.users.user,
+  };
 }
 
 export default connect(mapStateToProps, {

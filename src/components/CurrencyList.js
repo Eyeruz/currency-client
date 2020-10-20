@@ -9,6 +9,7 @@ const CurrencyList = (props) => {
       <h1> = </h1>
       <p> Currency Name: {props.convertedName}</p>
       <p> Currency Amount: {props.convertedAmount}</p>
+      <p>Date: {props.convertedDate}</p>
     </div>
   );
 };

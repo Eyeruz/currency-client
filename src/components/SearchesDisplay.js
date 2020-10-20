@@ -11,11 +11,11 @@ export class SearchesDisplay extends Component {
     return (
       <div className="paper">
         {console.log(this.props.id)}
-        <p>{this.props.name}</p>
-        <p>{this.props.amount}</p>
+        <p>Currency Name: {this.props.name}</p>
+        <p> Amount: {this.props.amount}</p>
         <h1> = </h1>
-        <p>{this.props.cName}</p>
-        <p>{this.props.cAmount}</p>
+        <p>Currency Name: {this.props.cName}</p>
+        <p>Amount: {this.props.cAmount}</p>
         <button className="button" onClick={this.handleChange}>
           Delete
         </button>

@@ -100,7 +100,7 @@ export class HistoryForm extends Component {
             name="Value"
             value={this.state.Value}
             onChange={this.handleChange}
-            placeholder="value"
+            placeholder="Enter Amount"
           />
           <br />
           <br />

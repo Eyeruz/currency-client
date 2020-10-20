@@ -16,10 +16,10 @@ export class IfSignedIn extends Component {
           <NavLink to="/about">About</NavLink>
         </div>
         <div className="navbar">
-          <NavLink to="/home">Present Currency Coverter </NavLink>
+          <NavLink to="/present">Present Currency Coverter </NavLink>
         </div>
         <div className="navbar">
-          <NavLink to="/history">Past Currency Coverter</NavLink>
+          <NavLink to="/past">Past Currency Coverter</NavLink>
         </div>
         <div className="navbar">
           <NavLink to="/searchlinks">View Currency Searches</NavLink>

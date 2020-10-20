@@ -19,7 +19,7 @@ export class HistoryConverter extends Component {
       <div>
         <h4 className="title"> Coverted Currency</h4>
         <HistoryList
-          currencyName={latestHistory.base_currency_code}
+          currencyName={latestHistory.base_currency_name}
           currencyAmount={latestHistory.amount}
           convertedName={latestHistory.rates[key].currency_name}
           convertedAmount={latestHistory.rates[key].rate_for_amount}

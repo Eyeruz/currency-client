@@ -27,9 +27,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Welcome} />
 
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/present" component={Home} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/history" component={History} />
+            <Route exact path="/past" component={History} />
             <Route exact path="/searchlinks" component={SearchLinks} />
             <Route
               exact

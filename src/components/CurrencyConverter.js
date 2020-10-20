@@ -18,12 +18,13 @@ export class CurrencyConverter extends Component {
 
     return (
       <div>
-        <h1 className="title"> Coverted Currency</h1>
+        <h4 className="title"> Coverted Currency</h4>
         <CurrencyList
-          currencyName={latest.base_currency_code}
+          currencyName={latest.base_currency_name}
           currencyAmount={latest.amount}
           convertedName={latest.rates[key].currency_name}
           convertedAmount={latest.rates[key].rate_for_amount}
+          convertedDate={latest.updated_date}
         />
       </div>
     );

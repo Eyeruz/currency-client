@@ -10,13 +10,15 @@ class HistorySearchesDisplay extends Component {
     return (
       <div className="paper">
         {console.log(this.props.id)}
-        <p>{this.props.name}</p>
-        <p>{this.props.amount}</p>
+        <p>Currency Code: {this.props.name}</p>
+        <p> Amount: {this.props.amount}</p>
         <h1> = </h1>
-        <p>{this.props.cName}</p>
-        <p>{this.props.cAmount}</p>
-        <p>{this.props.cDate}</p>
-        <button onClick={this.handleChange}>Delete</button>
+        <p>Currency Name: {this.props.cName}</p>
+        <p> Amount: {this.props.cAmount}</p>
+        <p> Date: {this.props.cDate}</p>
+        <button className="button" onClick={this.handleChange}>
+          Delete
+        </button>
         <h3>-----------------</h3>
       </div>
     );

@@ -51,7 +51,7 @@ export const userCurrencies = (data, user_id) => {
   return (dispatch) => {
     const strongParams = {
       currency: {
-        currencyName: data.base_currency_code,
+        currencyName: data.base_currency_name,
         currencyAmount: data.amount,
         convertedName: data.rates[key].currency_name,
         convertedAmount: data.rates[key].rate_for_amount,
@@ -103,7 +103,7 @@ export const userHistory = (data, user_id) => {
 
   const strongParams = {
     currency_history: {
-      currencyName: data.base_currency_code,
+      currencyName: data.base_currency_name,
       currencyAmount: data.amount,
       convertedName: data.rates[key].currency_name,
       convertedAmount: data.rates[key].rate_for_amount,

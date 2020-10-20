@@ -17,7 +17,7 @@ export class HistoryConverter extends Component {
 
     return (
       <div>
-        <h1> Welcome to the History Coverter</h1>
+        <h4 className="title"> Coverted Currency</h4>
         <HistoryList
           currencyName={latestHistory.base_currency_code}
           currencyAmount={latestHistory.amount}

@@ -31,9 +31,9 @@ export class SignUp extends Component {
   render() {
     return (
       <div className="sign-in-up">
-        <h2>Sign Up</h2>
+        <h2 className="title">Sign Up</h2>
         <form className="Sign_Up_Form" onSubmit={this.handleSubmit}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Username: </label>
           <input
             type="text"
             id="username"
@@ -42,7 +42,9 @@ export class SignUp extends Component {
             onChange={this.handleChange}
             placeholder="enter username"
           />
-          <label htmlFor="email">Email</label>
+          <br />
+          <br />
+          <label htmlFor="email">Email: </label>
           <input
             type="text"
             id="email"
@@ -51,7 +53,9 @@ export class SignUp extends Component {
             onChange={this.handleChange}
             placeholder="enter email"
           />
-          <label htmlFor="password">Password</label>
+          <br />
+          <br />
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             id="password"
@@ -60,7 +64,9 @@ export class SignUp extends Component {
             onChange={this.handleChange}
             placeholder="enter password"
           />
-          <label htmlFor="password_confirmation">Password Confirmation</label>
+          <br />
+          <br />
+          <label htmlFor="password_confirmation">Password Confirmation: </label>
           <input
             type="password"
             id="password_confirmation"
@@ -69,6 +75,8 @@ export class SignUp extends Component {
             onChange={this.handleChange}
             placeholder="enter password confirmation"
           />
+          <br />
+          <br />
           <button type="submit">Sign Up</button>
         </form>
       </div>

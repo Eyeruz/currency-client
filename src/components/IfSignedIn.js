@@ -13,19 +13,19 @@ export class IfSignedIn extends Component {
     return (
       <>
         <div className="navbar">
-          <NavLink to="/home">Home</NavLink>
-        </div>
-        <div className="navbar">
           <NavLink to="/about">About</NavLink>
         </div>
         <div className="navbar">
-          <NavLink to="/history">View Currency From the Past</NavLink>
+          <NavLink to="/home">Present Currency Coverter </NavLink>
+        </div>
+        <div className="navbar">
+          <NavLink to="/history">Past Currency Coverter</NavLink>
         </div>
         <div className="navbar">
           <NavLink to="/searchlinks">View Currency Searches</NavLink>
         </div>
         <div className="navbar" onClick={this.logout}>
-          <NavLink to="/">Logout </NavLink>{" "}
+          <NavLink to="/">Logout </NavLink>
         </div>
       </>
     );

@@ -18,7 +18,7 @@ export class CurrencyConverter extends Component {
 
     return (
       <div>
-        <h1 className="curr"> Welcome to the Currency Coverter</h1>
+        <h1 className="title"> Coverted Currency</h1>
         <CurrencyList
           currencyName={latest.base_currency_code}
           currencyAmount={latest.amount}

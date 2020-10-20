@@ -3,12 +3,12 @@ import React from "react";
 const CurrencyList = (props) => {
   console.log(props);
   return (
-    <div className="paper">
-      <p>{props.currencyName}</p>
-      <p>{props.currencyAmount}</p>
-      equals
-      <p>{props.convertedName}</p>
-      <p>{props.convertedAmount}</p>
+    <div className="currency">
+      <p> Currency Name: {props.currencyName}</p>
+      <p> Currency Amount: {props.currencyAmount}</p>
+      <h1> = </h1>
+      <p> Currency Name: {props.convertedName}</p>
+      <p> Currency Amount: {props.convertedAmount}</p>
     </div>
   );
 };

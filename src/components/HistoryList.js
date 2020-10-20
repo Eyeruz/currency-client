@@ -2,10 +2,10 @@ import React from "react";
 
 const HistoryList = (props) => {
   return (
-    <div>
+    <div className="currency">
       <p>{props.currencyName}</p>
       <p>{props.currencyAmount}</p>
-      equals
+      <h1> = </h1>
       <p>{props.convertedName}</p>
       <p>{props.convertedAmount}</p>
       <p>{props.convertedDate}</p>

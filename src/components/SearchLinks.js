@@ -5,11 +5,13 @@ const SearchLinks = () => {
   return (
     <div>
       <button className="navBar">
-        <NavLink to="/currency-history-searches">History Searches</NavLink>
+        <NavLink to="/currency-history-searches">
+          Past Currency Searches
+        </NavLink>
       </button>
 
       <button className="navBar">
-        <NavLink to="/currency-searches">Currency Searches</NavLink>
+        <NavLink to="/currency-searches"> Present Currency Searches</NavLink>
       </button>
     </div>
   );

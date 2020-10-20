@@ -73,6 +73,8 @@ export class HistoryForm extends Component {
 
     return (
       <div>
+        <h3 className="title"> Past Currency Converter</h3>
+
         <form onSubmit={this.handleSubmit}>
           From:
           <select

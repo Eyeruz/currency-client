@@ -54,7 +54,7 @@ export class CurrencyInput extends Component {
 
     return (
       <div>
-        <h3>Convert Currency</h3>
+        <h3 className="title">Present Currency Converter</h3>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="from">From: </label>
           <select

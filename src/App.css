@@ -154,8 +154,29 @@ input[type="submit"] {
   width: 15%;
 }
 
+@keyframes choppyBlink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Group same frames together */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  } /* more concise! */
+  50% {
+    opacity: 1;
+  }
+}
+
 .dataloaded {
   margin-top: 20%;
+  animation: blink 2s infinite;
 }
 
 /* 

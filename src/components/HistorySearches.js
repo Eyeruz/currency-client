@@ -13,6 +13,9 @@ class HistorySearches extends Component {
   render() {
     const searches = this.props.searches[this.props.searches.length - 1];
     console.log(searches);
+    if (!searches) {
+      return <div className="dataloaded"> no data loaded</div>;
+    }
     return (
       <>
         <SearchLinks />

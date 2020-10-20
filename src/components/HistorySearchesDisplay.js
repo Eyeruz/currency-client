@@ -6,6 +6,7 @@ class HistorySearchesDisplay extends Component {
   handleChange = () => {
     this.props.deleteHistorySearches(this.props.id);
   };
+
   render() {
     return (
       <div className="paper">

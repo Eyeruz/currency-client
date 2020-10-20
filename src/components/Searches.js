@@ -12,9 +12,6 @@ export class Searches extends Component {
       this.props.currencySearches(this.props.user.user.id);
     }
   }
-  update() {
-    this.forceUpdate();
-  }
 
   render() {
     const searches = this.props.searches[this.props.searches.length - 1];
@@ -36,7 +33,7 @@ export class Searches extends Component {
                   user_id={search.user_id}
                 />
               ))
-            : null}
+            : "no data loaded"}
         </div>
       </>
     );

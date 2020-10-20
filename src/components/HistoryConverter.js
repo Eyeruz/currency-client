@@ -23,6 +23,7 @@ export class HistoryConverter extends Component {
           currencyAmount={latestHistory.amount}
           convertedName={latestHistory.rates[key].currency_name}
           convertedAmount={latestHistory.rates[key].rate_for_amount}
+          rate={latestHistory.rates[key].rate}
           convertedDate={latestHistory.updated_date}
         />
       </div>

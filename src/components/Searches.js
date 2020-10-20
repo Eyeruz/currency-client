@@ -30,6 +30,7 @@ export class Searches extends Component {
                   cName={search.convertedName}
                   cAmount={search.convertedAmount}
                   rate={search.rate}
+                  date={search.updated_at}
                   user_id={search.user_id}
                 />
               ))

@@ -17,6 +17,7 @@ export class SearchesDisplay extends Component {
         <h1> = </h1>
         <p>Currency Name: {this.props.cName}</p>
         <p>Amount: {this.props.cAmount}</p>
+        {/* <p> Date: {this.props.date}</p> */}
         <button className="button" onClick={this.handleChange}>
           Delete
         </button>

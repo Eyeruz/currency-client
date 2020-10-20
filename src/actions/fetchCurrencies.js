@@ -54,6 +54,7 @@ export const userCurrencies = (data, user_id) => {
         currencyName: data.base_currency_name,
         currencyAmount: data.amount,
         convertedName: data.rates[key].currency_name,
+        rate: data.rates[key].rate,
         convertedAmount: data.rates[key].rate_for_amount,
       },
     };
@@ -107,6 +108,7 @@ export const userHistory = (data, user_id) => {
       currencyAmount: data.amount,
       convertedName: data.rates[key].currency_name,
       convertedAmount: data.rates[key].rate_for_amount,
+      rate: data.rates[key].rate,
       convertedDate: data.updated_date,
     },
   };

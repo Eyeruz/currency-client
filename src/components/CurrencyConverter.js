@@ -24,6 +24,7 @@ export class CurrencyConverter extends Component {
           currencyAmount={latest.amount}
           convertedName={latest.rates[key].currency_name}
           convertedAmount={latest.rates[key].rate_for_amount}
+          rate={latest.rates[key].rate}
           convertedDate={latest.updated_date}
         />
       </div>

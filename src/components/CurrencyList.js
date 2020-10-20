@@ -4,6 +4,7 @@ const CurrencyList = (props) => {
   console.log(props);
   return (
     <div className="currency">
+      <p>Currency Rate: {props.rate} </p>
       <p> Currency Name: {props.currencyName}</p>
       <p> Currency Amount: {props.currencyAmount}</p>
       <h1> = </h1>

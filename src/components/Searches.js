@@ -32,6 +32,7 @@ export class Searches extends Component {
                   amount={search.currencyAmount}
                   cName={search.convertedName}
                   cAmount={search.convertedAmount}
+                  rate={search.rate}
                   user_id={search.user_id}
                 />
               ))

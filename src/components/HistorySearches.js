@@ -28,6 +28,7 @@ class HistorySearches extends Component {
                   cAmount={search.convertedAmount}
                   cDate={search.convertedDate}
                   user_id={search.user_id}
+                  rate={search.rate}
                 />
               ))
             : null}

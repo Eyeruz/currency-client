@@ -10,6 +10,7 @@ class HistorySearchesDisplay extends Component {
     return (
       <div className="paper">
         {console.log(this.props.id)}
+        <p> Rate: {this.props.rate} </p>
         <p>Currency Code: {this.props.name}</p>
         <p> Amount: {this.props.amount}</p>
         <h1> = </h1>

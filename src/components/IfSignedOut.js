@@ -3,14 +3,15 @@ import { NavLink } from "react-router-dom";
 
 const IfSignedOut = () => {
   return (
-    <ul className="navbar">
-      <li>
+    <>
+      <div className="navbar">
         <NavLink to="/signin"> Sign In </NavLink>
-      </li>
-      <li>
+      </div>
+
+      <div className="navbar">
         <NavLink to="/signup"> Sign Up </NavLink>
-      </li>
-    </ul>
+      </div>
+    </>
   );
 };
 

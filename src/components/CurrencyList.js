@@ -3,7 +3,7 @@ import React from "react";
 const CurrencyList = (props) => {
   console.log(props);
   return (
-    <div>
+    <div className="paper">
       <p>{props.currencyName}</p>
       <p>{props.currencyAmount}</p>
       equals

@@ -8,7 +8,7 @@ export class HistoryConverter extends Component {
     const latestHistory = this.props.history[this.props.history.length - 1];
     console.log(latestHistory);
     if (!latestHistory) {
-      return <div> no data loaded yet</div>;
+      return <div className="dataloaded"> no data loaded yet</div>;
     }
 
     const key = Object.keys(latestHistory.rates)[0];

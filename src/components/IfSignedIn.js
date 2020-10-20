@@ -11,27 +11,23 @@ export class IfSignedIn extends Component {
   };
   render() {
     return (
-      <ul className="navbar">
-        <li>
+      <>
+        <div className="navbar">
           <NavLink to="/home">Home</NavLink>
-        </li>
-        <li>
+        </div>
+        <div className="navbar">
+          <NavLink to="/about">About</NavLink>
+        </div>
+        <div className="navbar">
           <NavLink to="/history">View Currency From the Past</NavLink>
-        </li>
-        <li>
+        </div>
+        <div className="navbar">
           <NavLink to="/searchlinks">View Currency Searches</NavLink>
-        </li>
-        <li>
-          {/* <NavLink to="/search-history">
-            {/* View Your Currency History Searches
-          </NavLink> */}
-        </li>
-
-        <li onClick={this.logout}>
-          {" "}
+        </div>
+        <div className="navbar" onClick={this.logout}>
           <NavLink to="/">Logout </NavLink>{" "}
-        </li>
-      </ul>
+        </div>
+      </>
     );
   }
 }

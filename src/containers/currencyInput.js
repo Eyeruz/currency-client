@@ -54,8 +54,9 @@ export class CurrencyInput extends Component {
 
     return (
       <div>
+        <h3>Convert Currency</h3>
         <form onSubmit={this.handleSubmit}>
-          From:
+          <label htmlFor="from">From: </label>
           <select
             name="userCurrency"
             value={this.state.userCurrency}
@@ -65,7 +66,7 @@ export class CurrencyInput extends Component {
           </select>
           <br />
           <br />
-          To:{" "}
+          <label htmlFor="to">To: </label>
           <select
             name="otherCurrency"
             value={this.state.otherCurrency}
@@ -75,6 +76,8 @@ export class CurrencyInput extends Component {
           </select>
           <br />
           <br />
+          <label htmlFor="amount">Amount: </label>
+
           <input
             type="number"
             min="0.01"
@@ -83,7 +86,7 @@ export class CurrencyInput extends Component {
             name="currencyValue"
             value={this.state.currencyValue}
             onChange={this.handleChange}
-            placeholder="value"
+            placeholder="Enter Amount"
           />
           <br />
           <br />

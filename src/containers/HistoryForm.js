@@ -112,6 +112,7 @@ export class HistoryForm extends Component {
             onChange={this.handleChange}
           />
           <br />
+          <br />
           <input type="submit" value="Submit" />
         </form>
       </div>

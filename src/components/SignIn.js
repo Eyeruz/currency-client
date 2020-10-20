@@ -29,24 +29,27 @@ export class SignIn extends Component {
       <div className="sign-in-up">
         <h2>Sign In</h2>
         <form className="Sign_In_Form" onSubmit={this.handleSubmit}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Username: </label>
           <input
             type="text"
             id="username"
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
-            placeholder="enter username"
+            placeholder="Enter Username"
           />
-          <label htmlFor="password">Password</label>
+          <br />
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             id="password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
-            placeholder="enter password"
+            placeholder="Enter password"
           />
+          <br />
+          <br />
           <button type="submit">Sign In</button>
         </form>
       </div>

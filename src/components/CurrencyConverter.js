@@ -7,8 +7,9 @@ export class CurrencyConverter extends Component {
   render() {
     const latest = this.props.usercur[this.props.usercur.length - 1];
     console.log(latest);
+
     if (!latest) {
-      return <div> no data loaded</div>;
+      return <div className="dataloaded"> no data loaded</div>;
     }
 
     const key = Object.keys(latest.rates)[0];
@@ -17,7 +18,7 @@ export class CurrencyConverter extends Component {
 
     return (
       <div>
-        <h1> Welcome to the Currency Coverter</h1>
+        <h1 className="curr"> Welcome to the Currency Coverter</h1>
         <CurrencyList
           currencyName={latest.base_currency_code}
           currencyAmount={latest.amount}

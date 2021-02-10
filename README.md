@@ -1,4 +1,5 @@
-# final-project
+# currency-conveter
+
 
 this app is a currency converter app that has a conveter that can convert back in time..
 login&logout
